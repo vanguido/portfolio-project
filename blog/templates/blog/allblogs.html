@@ -56,7 +56,7 @@
           <div class="navbar-nav ml-auto">
             <a class="nav-item nav-link active" href="#">Twitter <span class="sr-only">(current)</span></a>
             <a class="nav-item nav-link" href="#">Resume</a>
-            <a class="nav-item nav-link" href="#">Blog</a>
+            <a class="nav-item nav-link active" href="#">Blog</a>
           </div>
         </div>
       </nav>
@@ -64,40 +64,28 @@
   </header>
 
   <main role="main">
+    <div class="container">
+      <h1 class="text-center pt-3">Welcome to van's Blog</h1>
+      <br />
+      <br />
+      <h2 class="text-center pt-3">Latest Posts</h2>
+      <hr />
 
-    <section class="jumbotron text-center">
-      <div class="container">
-        <h1>Hi, I am van!</h1>
-        <p class="lead text-muted">Hey, my name is van and I like pretty girls and I like to eat. I made this mind from
-          my rap. </p>
-        <p>
-          <a href="https:facebook.com/whoisvanmilby" class="btn btn-primary my-2">DM me . . please</a>
-        </p>
-      </div>
-    </section>
-
-    <div class="album py-5 bg-light">
-      <div class="container">
-
-        <div class="row">
-          {% for jobs in jobs.all %}
-          <div class="col-md-4">
-            <div class="card mb-4 shadow-sm">
-              <img class="card-img-top img-fluid" src="{{ jobs.image.url }}"><img />
-              <div class="card-body">
-                <p class="card-text text-primary">{{ jobs.summary }}</p>
-                <div class="d-flex justify-content-between align-items-center">
-                </div>
-              </div>
-            </div>
-          </div>
-          {% endfor %}
+      {% for blog in blog.all %}
+      <div class="media">
+        <img src="{{ blog.image.url }}" class="align-self-start mr-3 img-fluid" height="225" width="225" alt="...">
+        <div class="media-body">
+          <span class="pt-2">{{ blog.pub_date_pretty }}</span>
+          <h5 class="mt-0 pt-1 text-primary">{{ blog.summary }}</h5>
+          <p>{{ blog.body }}</p>
         </div>
       </div>
+      <br />
+      {% endfor %}
+
     </div>
-
   </main>
-
+  s
   <footer class="text-muted">
     <div class="container">
       <p class="text-center">
